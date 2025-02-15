@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Details</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3fff0; /* Light greenish background */
+            color: #2e7d32; /* Dark green text */
+            margin: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 128, 0, 0.2);
+            text-align: center;
+        }
+        h2 {
+            color: #1b5e20; /* Deep green title */
+            text-decoration: underline;
+        }
+        h5 {
+            color: #388e3c; /* Medium green date */
+        }
+        p {
+            color: #2e7d32; /* Slightly darker green text */
+            line-height: 1.6;
+            text-align: justify;
+        }
+        .news-image {
+            width: 100%;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            box-shadow: 0px 4px 10px rgba(0, 128, 0, 0.3);
+        }
+        .back-button {
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: #4caf50; /* Green button */
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: 0.3s;
+            margin-top: 10px;
+        }
+        .back-button:hover {
+            background-color: #388e3c; /* Darker green on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-button">← Back to News</a><br><br>
+        <img id="news-image" class="news-image" src="" alt="News Image">
+        <div id="news-content">
+            <!-- Content will be loaded dynamically -->
+        </div>
+    </div>
+
+    <script>
+        // Get the article ID from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const articleId = urlParams.get('article');
+
+        // Sample articles data
+        const articles = {
+            "1": {
+                title: "Ambewela Farms Achieves Record-Breaking Daily Milk Production of 60,000 Litres",
+                date: "December 11, 2024",
+                image: "Images/dji.jpg",
+                content: "Lanka Milk Foods (CWE) PLC (LMF) has set an extraordinary benchmark at its Ambewela Farms, achieving a record-breaking daily milk production of 62,000 litres from a single source. This represents a truly massive growth from the 3,000 litres to 60,000 liters per day recorded. When the company took over the facility from the state sector in 2001 it started with less than 3000 liters daily production. Now contributing 20 million litres of milk annually to Sri Lanka’s national supply, Ambewela Farms exemplifies the transformative power of modernisation, expertise, and relentless dedication. This achievement is the result of years of meticulous planning, significant investments, and implementing innovative farming practices. A major milestone was reached in 2019 with the introduction of two automated dairy housing and milking systems, part of a 5-billion-rupee investment in modernisation. These systems doubled production capacity within two years, bringing the farm to world-class standards. Every detail, from dairy cow comfort to computerised management systems, reflects a commitment to excellence.The farms’ success stems not only from infrastructure but also from forward-thinking practices. An advanced breeding programme using sexed semen from globally renowned stud bulls has enabled the production of high-yielding cows locally. These genetically superior cows, comparable to the best commercial herds worldwide, produce an impressive 12,000 litres per 305-day lactation cycle. Furthermore, rigorous health surveillance and preventive measures ensure that the herd remains healthy and disease-free, maintaining productivity.Nutrition also plays a vital role in sustaining these high yields. With guidance from international nutritionists, the farm employs precision feeding systems tailored to meet the needs of high-yielding cows. Additionally, purpose-bred grass varieties, imported and cultivated on the farm’s pastures, provide optimal nutrition. Advanced feeding and care systems for calves ensure superior growth and early maturity, resulting in continual improvements in herd productivity. This has resulted in dairy cows at Ambewela Farms producing an average of up to 40 litres of milk per cow, per day. Reflecting on the achievement, General Manager Farms, Sarath Bandara said, “This milestone has been made possible through a collaborative approach, blending international expertise with the knowledge and dedication of our local teams. It represents the culmination of years of hard work, strategic planning, and innovation. Having combined global knowledge with local expertise and commitment, we’ve set a new standard for dairy production in Sri Lanka. We remain committed to uplifting the dairy industry, and supporting national self-sufficiency through improved productivity and quality excellence.”The impact of the developments at Ambewela Farms reaches far beyond its own operations, as LMF shares its success with local farmers by providing high-quality offspring from its herds, empowering them to enhance productivity and adopt best practices. Driven by LMF’s strong belief in winning together as a nation, these initiatives are strengthening the country’s dairy sector and building a culture of continuous improvement. This is improving efficiency and self-sufficiency across Sri Lanka’s dairy industry, while bolstering Island’s food security, and highlights the potential of combining advanced technology, expert guidance, and sustainable practices. As LMF continues to set new benchmarks, the company remains steadfast in its mission to support Sri Lanka’s dairy industry, delivering unmatched quality to consumers, and upholding its position as a national leader in dairy production."
+            },
+            "2": {
+                title: "Discover Ambewela’s Newly Relaunched Cheese Range",
+                date: "February 09, 2025",
+                image: "Images/cheesenews.jpg",
+                content: "Lanka Milk Foods (CWE) PLC has long been a trusted name in Sri Lanka’s dairy sector, providing unparalleled freshness and quality under the well-known Ambewela brand – which has become a household name. Taking yet another innovative step forward, Ambewela has recently relaunched its cheese ranges, a move designed to align its premium dairy offerings with a range to cater to the evolving needs of consumers. This relaunch, featuring a fresh, modern look and improved packaging, aligns with company’s mission to bring world-class dairy products to Sri Lankan homes and professional kitchens. Ambewela’s cheese range has seen an exciting transformation. Featuring seven types of cheese — Edam, Gouda, Parmesan, Processed, Mozzarella, Paneer, and Spread Cheese — the range offers something for every palate and occasion. With options available in blocks, slices, and spreads, the Ambewela Cheese range has been transformed with user-friendly packaging featuring a new design aesthetic. Additionally, several new cheese variants have been introduced, catering to Sri Lanka’s increasingly diverse consumer preferences. Notably, the 200g processed cheese, a signature product of Ambewela’s New Zealand farm, is crafted using traditional cottage cheese-making techniques, ensuring an exquisite taste experience. The iconic Gouda ball cheeses now come in both plain and flavoured varieties, including pepper, cumin, chilli, and garlic, providing an exciting range of options for cheese lovers.Commenting on the relaunch of its cheese ranges, CEO Sasanka Perera said, “Our vision has always been to support the growth of Sri Lanka’s dairy industry by promoting high-quality local products. This relaunch reflects our commitment to innovation and meeting the national demand while reducing the reliance on imports. With the newly designed packaging and new additions to the cheese line, Sri Lankans can now truly enjoy world-class dairy products that are produced locally. Whether consumers are looking for familiar comfort foods or crafting gourmet cheese boards, there is now something for everyone.”As one of the leading dairy manufacturers in the country, Ambewela’s highland farms, located in Ambewela and Pattipola, produce high quality dairy products from cows raised in ideal environmental conditions. With a commitment to excellence and stringent quality control, the brand has consistently delivered products that are synonymous with purity, nutrition, and exceptional taste. Ambewela’s dedication to quality is rooted in its farm-to-table approach, where every step of the production process is closely monitored to ensure the highest standards. From its lush pastures to the advanced processing technology employed, the company guarantees that only the freshest, safest, and most nutritious dairy products reach consumers. "
+            },
+            "3": {
+                title: "President Wickremesinghe visits Ambewela Dairy Farm, highlighting its advancements and commitment to growth.",
+                date: "June 28, 2024",
+                image: "Images/president.jpg",
+                content: "Ambewela Dairy Farm, a household name for dairy goodness, and renowned for its state-of-the-art technology and commitment to advancing dairy production, recently welcomed President Ranil Wickremesinghe. This special visit marked the President’s return to the farm following his inspection tour in December 2022. During his previous visit, President Wickremesinghe issued directives that initiated a comprehensive development drive at Ambewela, propelling the farm towards significant advancements.Upon his arrival, President Wickremesinghe was warmly received by Management Committee, of Ambewela Dairy Farm, along with the dedicated staff. The President inspected the premises and reviewed the progress of the new development initiatives, noting the leaps that have been made, and the farm’s important contribution to the national economy. The President’s engagement with the staff and interaction with local and foreign tourists underscored his commitment to understanding and supporting the farm’s development.During the Presidential Visit, the management committee took the opportunity to highlight the transformation of Ambewela Farm since its establishment in 1943 and privatization in 2001. He explained how the farm has undergone extensive modernization, establishing itself as the leading centre, both in Sri Lanka and across South Asia, for advanced dairy production and farm technology utilization. The Team also expressed gratitude to President Wickremesinghe for his unwavering support, which has been pivotal in shaping the farm’s development trajectory.Reflecting on the President’s visit in December 2022,  it was revealed that the daily milk production at that time was approximately 40,000 litres. However, as a result of subsequent modernization initiatives, under the guidance of President Wickremasinghe, the farm is now on track to achieve a daily milk production of 52,000 litres by the end of the year, marking a significant 30% increase. Meanwhile, the farm aims to reach an annual production capacity of 20 million litres through these gradual increases, driven by the development of high-quality dairy cow breeds and the automation of all livestock management activities. Commenting on the Presidential Visit,  the management  said, “It was an honour to welcome President Wickremasinghe once again. His keen insights have genuinely added value to our development initiatives. Ambewela Dairy Farm’s progress is a testament to our commitment to innovation and excellence in dairy production. We have invested heavily in advanced technologies and mechanized processes to enhance efficiency and productivity. With President Wickremesinghe’s continued support, we are confident in our ability to achieve our ambitious production goals and further contribute to Sri Lanka’s agricultural sector.”In line with the President’s directives during his recent visit, Ambewela Dairy Farm has already started evaluating how it can further increase milk production and expand output by introducing the latest technologies and improved state-of-the-art facilities. This strategic move aims to bolster the farm’s capacity and enhance its contribution to the national dairy industry. The farm has also opened its doors for research and experiential learning, offering students from Sri Lankan universities valuable hands-on experience.Ambewela Dairy Farm also continues to attract a significant number of tourists, with efforts made to enhance visitor facilities and ensure an enriching experience. On one notable day this year, the farm welcomed 9,000 visitors, reflecting its growing popularity. These initiatives underscore the farm’s commitment to excellence and its role as a leader in the dairy industry. The ongoing support and strategic direction provided by President Wickremesinghe remain crucial in driving the farm’s future success and its contributions to the national economy."
+            }
+        };
+
+        // Display the selected article
+        if (articles[articleId]) {
+            document.getElementById("news-image").src = articles[articleId].image;
+            document.getElementById("news-image").alt = articles[articleId].title;
+            document.getElementById("news-content").innerHTML = `
+                <h2>${articles[articleId].title}</h2>
+                <h5>${articles[articleId].date}</h5>
+                <p>${articles[articleId].content}</p>
+            `;
+        } else {
+            document.getElementById("news-content").innerHTML = `<p style="color: red;">Article not found.</p>`;
+            document.getElementById("news-image").style.display = "none"; // Hide image if no article is found
+        }
+    </script>
+</body>
+</html>

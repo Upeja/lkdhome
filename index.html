@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dairy Company Homepage</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background: #f8fcdc;
+}
+
+/* Navbar Styles */
+.navbar {
+  background-color: #8bc34a; /* Green color */
+  display: flex;
+  align-items: center;
+  padding: 0px 20px;
+}
+
+.logo {
+    height: 80px;
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  margin-right: auto;
+  margin-top: -5px;
+  margin-bottom: -10px;
+  border-radius: 5px;
+  margin-left: 30px;
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-item a {
+  display: block;
+  padding: 10px 15px;
+  color: white;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.nav-item a:hover {
+  background-color: #689f38; /* Darker green on hover */
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #8bc34a;
+  display: none;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  min-width: 150px;
+  z-index: 1000;
+}
+
+.dropdown li a {
+  padding: 10px;
+  color: white;
+  text-decoration: none;
+  display: block;
+  transition: background 0.3s;
+}
+
+.dropdown li a:hover {
+  background-color: #558b2f;
+}
+
+.nav-item:hover .dropdown {
+  display: block;
+}
+.hero {
+    position: relative;
+    height: 100vh; /* Full screen height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+}
+
+.hero-slideshow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* Matches the height of .hero */
+    z-index: -1;
+}
+
+.hero-slideshow img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: fill; /* This forces the image to stretch and cover the whole section */
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.hero-slideshow img.active {
+    opacity: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-content h1 {
+    position: relative;
+    right: -350px;      /* Align to the right */
+    bottom: -150px;     /* Align to the bottom */
+    font-size: 3rem;
+    font-weight: bold;
+    margin: 0;     /* Remove margin for perfect positioning */
+    padding: 20px; /* Optional padding for spacing */
+    color: white;  /* Change text color for visibility (optional) */
+}
+.highlight {
+    background-color: #98b424;
+    color: rgb(255, 255, 255);
+    padding: 2px;
+    border-radius: 5px;
+  }
+
+.promo-section {
+    text-align: center;
+    padding: 50px 20px;
+    background: linear-gradient(to bottom, white 25%, #e8ecbc 75%);
+    position: relative;
+}
+
+.promo-section .promo-image {
+    position: absolute;
+    top: -110px;
+    left: 25%;
+    transform: translateX(-50%);
+    max-width: 50%;
+    border-radius: 10px;
+}
+
+.promo-content {
+    width: 75%;
+    position: relative;
+    text-align: left;
+    padding-left: 30%;
+}
+.promo-content h2 {
+    font-size: 25px; /* Adjust size as needed */
+    color: #98b424; /* Dark gray, change to preferred color */
+    font-weight: bold;
+}
+
+.promo-content p {
+    font-size: 16px; /* Adjust size as needed */
+    color: #000000; /* Medium gray, change to preferred color */
+    line-height: 1.3;
+}
+
+.our-products {
+    position: relative;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('Images/background.jpg') no-repeat center center/cover;
+    height: 500px;
+    padding: 50px 0;
+    text-align: center;
+    color: white;
+}
+
+
+.our-products h2 {
+    font-size: 28px; /* Increase font size */
+    font-weight: bold; /* Make it bold */
+    color: #ffffff; /* Change color */
+    text-transform: uppercase; /* Make it uppercase */
+    margin-bottom: 10px; /* Reduce gap below heading */
+}
+
+.our-products p {
+    font-size: 16px; /* Adjust font size */
+    color: #ffffff; /* Darken text */
+    line-height: 1.6; /* Improve readability */
+    max-width: 600px; /* Limit width for better text layout */
+    margin: 0 auto 20px; /* Center and add spacing */
+}
+
+.overlay {
+    
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border: 0.5px solid white;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.overlay .text-content {
+    position: relative; /* Keeps text in the same place */
+    z-index: 1;
+}
+
+.overlay button {
+    position: absolute; /* Moves the button independently */
+    bottom: -20px; /* Places the button near the bottom of the overlay */
+    z-index: 1;
+}
+.overlay h2 {
+    color: #ffffff; /* Gold color for the heading */
+    font-size: 36px;
+    font-weight: 800;
+}
+
+.overlay p {
+    color: #FFFFFF; /* White color for paragraph text */
+    font-size: 18px;
+}
+
+.overlay button {
+    background-color: #98b424; /* Vibrant orange background */
+    border: none;
+    color: #FFFFFF; /* White text on the button */
+    padding: 10px 20px;
+    font-size: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.overlay button:hover {
+    background-color: #48eb8b; /* Darker red when hovered */
+}
+
+.content {
+    position: relative;
+    z-index: 2;
+}
+
+.product-card {
+    position: relative;
+    background: white;
+    color: black;
+    width: 180px;
+    height: 240px;
+    padding: 50px 20px 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    overflow: visible;
+    transition: transform 0.3s ease-in-out;
+    margin-top: 270px;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-image {
+    position: absolute;
+    top: -130px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 180px;
+    height: auto;
+}
+
+.product-content {
+    margin-top: 10px;
+    line-height: 1.2;
+    font-size: medium;
+}
+
+/* Fresh Milk Styles */
+.fresh-milk h6 {
+    font-size: 16px;
+    font-weight: bold;
+    color: #088c3c;
+    margin-bottom: 10px;
+}
+
+.fresh-milk p {
+    font-size: 13px;
+    color: #000000;
+    line-height: 1.3;
+    margin-bottom: 14px;
+    text-align: justify;
+}
+
+/* Flavored Milk Styles */
+.flavored-milk h6 {
+    font-size: 16px;
+    font-weight: bold;
+    color: #088c3c;
+    margin-bottom: 10px;
+}
+
+.flavored-milk p {
+    font-size: 13px;
+    color: #000000;
+    line-height: 1.3;
+    text-align: justify;
+    margin-bottom: 31px;
+}
+
+/* Cheese & Butter Styles */
+.cheese-butter h6 {
+    font-size: 16px;
+    font-weight: bold;
+    color: #088c3c;
+    margin-bottom: 10px;
+}
+
+.cheese-butter p {
+    font-size: 13px;
+    color: #000000;
+    line-height: 1.3;
+    text-align: justify;
+    margin-bottom: 14px;
+}
+
+/* Yoghurt Styles */
+.yoghurt h6 {
+    font-size: 16px;
+    font-weight: bold;
+    color: #088c3c;
+    margin-bottom: 10px;
+}
+
+.yoghurt p {
+    font-size: 13px;
+    color: #000000;
+    line-height: 1.3;
+    text-align: justify;
+    margin-bottom: 13px;
+}
+
+/* Juices Styles */
+.juices h6 {
+    font-size: 16px;
+    font-weight: bold;
+    color: #088c3c;
+    margin-bottom: 10px;
+}
+
+.juices p {
+    font-size: 13px;
+    color: #000000;
+    line-height: 1.3;
+    text-align: justify;
+    margin-bottom: 47px;
+}
+
+.btn-read-more {
+    background: #088c3c;
+    color: white;
+    border-radius: 20px;
+    padding: 6px 15px;
+    text-transform: uppercase;
+    font-weight: bold;
+    border: none;
+    font-size: 14px;
+}
+
+.btn-read-more:hover {
+    background: #c6701c;
+}
+
+.our-brands {
+    text-align: center;
+    padding: 30px 0;
+    background: #f8fcdc;
+    margin-top: 250px;
+}
+
+.our-brands h2 {
+    font-size: 28px; /* Increase font size */
+    font-weight: bold; /* Make it bold */
+    color: #088c3c; /* Change to a warm orange color */
+    text-transform: uppercase; /* Capitalize text */
+    margin-bottom: 10px; /* Reduce gap below heading */
+}
+
+.our-brands p {
+    font-size: 16px; /* Adjust font size */
+    color: #000000; /* Darker gray for readability */
+    line-height: 1.5; /* Improve spacing */
+    max-width: 600px; /* Limit width for better layout */
+    margin: 0 auto 20px; /* Center text and add spacing */
+}
+
+.brand-logos img {
+    max-width: 150px;
+    margin: 0 20px;
+}
+
+.banner-section {
+    position: relative;
+    color: white;
+    text-align: center;
+    width: 50%;
+    min-height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner-left {
+    background: url('Images/cowsgreen.jpg') center/cover;
+}
+
+.banner-right {
+    background: url('Images/isonw.jpg') center/cover;
+}
+
+.banner-section::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 100%;
+    background: white;
+}
+
+.stats-section {
+    position: relative;
+    background: url('Images/farm.jpg') no-repeat center center/cover;
+    border-left:0.5px solid white;
+    border-right:0.5px solid white;
+    height: 700px;
+    padding: 100px 0 100px;
+    text-align: center;
+    color: black;
+}
+
+.stats-section h6 {
+    font-size: 50px; /* Resizes the h6 text */
+    font-weight: bold;
+    color: #068c44 !important; /* Optional: Gold color */
+    line-height: 1;
+}
+
+.stats-section p {
+    font-size: 22px; /* Resizes the paragraph text */
+    margin-top: -10px;
+    color: #000000; /* Ensure text remains readable */
+    line-height: 1;
+}
+
+.news-item { 
+    margin-bottom: 30px;
+}
+
+.news-thumbnail {
+    max-width: 100px;
+    margin: 20px;
+    display: inline-block;
+    margin-right: 20px; /* Add gap between image and content */
+}
+
+
+
+.news-item { 
+    margin-bottom: 30px;
+    padding-bottom: 20px; /* Optional, to give space between the line and the content */
+
+}
+
+.col-md-12 {
+    border-bottom: 2px solid #ccc; /* Adds a line below both image and content */
+    padding-bottom: 20px; /* Optional, to give space between the line and content */
+    margin-bottom: 30px; /* Optional, adds some space between news items */
+}
+
+.col-md-4 {
+    padding-right: 20px; /* Adds gap between image and text */
+}
+
+.news-thumbnail img {
+    width: 100%;
+    height: auto;
+    margin: 20px 0; /* Optional, if you want to add some margin around the image */
+}
+
+
+.news-thumbnail img {
+    width: 100%;
+    height: auto;
+    margin: 20px 0; /* Optional, if you want to add some margin around the image */
+}
+.news-item h5 {
+    font-size: 14px;  /* Adjust as needed */
+    color: #555;  /* Optional, you can change the color too */
+}
+
+/* For the news title (bold text under the date) */
+.news-item p strong {
+    font-size: 22px;  /* Adjust as needed */
+    color: #333;  /* Optional, adjust color */
+}
+
+/* For the news content (the text after the title) */
+.news-item p {
+    font-size: 18px;  /* Adjust as needed */
+    color: #777;  /* Optional, adjust color */
+}
+    .footer {
+    background-color: #088c3c;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.footer-nav a {
+    color: #ffffff;
+    margin: 0 10px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 400;}
+
+.footer-nav a.active,
+.footer-nav a:hover {
+    color: #a6ff00;
+}
+
+.copyright {
+    margin-top: 10px;
+    font-size: 14px;
+}
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px 0;
+    }
+
+    .hero {
+        height: 60vh;
+    }
+
+    .promo-section .promo-image {
+        max-width: 80%;
+    }
+
+    .product-card {
+        width: 90%;
+    }
+
+    .overlay h2 {
+        font-size: 20px;
+    }
+
+    .overlay p {
+        font-size: 14px;
+    }
+
+    .stats-section h6 {
+        font-size: 24px;
+    }
+
+    .stats-section p {
+        font-size: 16px;
+    }
+
+    .news-thumbnail img {
+        max-width: 80px;
+    }
+}
+
+
+    </style>
+</head>
+<body>
+    
+    <nav class="navbar">
+        <a class="navbar-brand d-flex align-items-center" href="#">
+            <img src="Images/logo.jpg" alt="Dairy Brand Logo" class="logo me-2"> 
+        </a>
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="index.html">Home</a></li>
+          <li class="nav-item">
+            <a href="#">About Us</a>
+            <ul class="dropdown">
+              <li><a href="#">History</a></li>
+              <li><a href="#">Focus</a></li>
+              <li><a href="#">People</a></li>
+              <li><a href="#">Our Farms</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#">Products</a>
+            <ul class="dropdown">
+              <li><a href="#">Fresh Milk</a></li>
+              <li><a href="#">Flavoured Milk</a></li>
+              <li><a href="#">Cheese & Butter</a></li>
+              <li><a href="#">Yoghurt</a></li>
+              <li><a href="#">Juices</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#">Brands</a>
+            <ul class="dropdown">
+              <li><a href="#">Ambewela</a></li>
+              <li><a href="#">Daily</a></li>
+              <li><a href="#">My Juicee</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#">Subsidiaries</a>
+          </li>
+          <li class="nav-item">
+            <a href="#">Innovation</a>
+          </li>
+          <li class="nav-item">
+            <a href="#">News Center</a>
+          </li>
+          <li class="nav-item">
+            <a href="#">Investor Relations</a>
+            <ul class="dropdown">
+              <li><a href="#">Board of Directors</a></li>
+              <li><a href="#">Reports</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#">Contact Us</a>
+          </li>
+        </ul>
+      </nav>
+    
+      <section class="hero">
+        <div class="hero-video">
+            <video src="video/02.mp4" autoplay muted loop playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;"></video>
+        </div>
+        
+    </section>
+    
+    <section class="promo-section">
+        <img src="Images/family.png" alt="Happy family drinking milk" class="promo-image">
+        <div class="container promo-content">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <h2>Bringing You the Best in Dairy Excellence</h2>
+                    <p>At Lanka Dairies Limited (LDL), we are committed to delivering premium dairy products
+                         that embody freshness, quality, and innovation. With a legacy spanning decades, we ensure farm-to-table excellence by overseeing 
+                        every step of the process—from raising world-class dairy cattle to state-of-the-art production and distribution.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="our-products" style="background: url('Images/cow.JPG') no-repeat center center/cover;">
+        
+        <div class="container content">
+            <h2>OUR PRODUCTS</h2>
+            <p>Taste the Difference Quality Makes: Elevate Every Meal with Our Delicious Range of 
+                Dairy and Fresh Juices.</p>
+
+
+                <div class="container py-5 mt-4">
+                    <div class="row justify-content-center g-4">
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                            <div class="product-card fresh-milk">
+                                <img src="Images/freshmilk.png" alt="Fresh Milk" class="product-image">
+                                <div class="product-content">
+                                    <h6>Fresh Milk</h6>
+                                    <p>Farm-fresh goodness, bottled daily. Our milk is simply pure, delicious, and naturally nutritious. Experience the difference real milk makes.</p>
+                                    <a href="#" class="btn btn-read-more">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                            <div class="product-card flavored-milk">
+                                <img src="Images/flavoured.png" alt="Flavored Milk" class="product-image">
+                                <div class="product-content">
+                                    <h6>Flavored Milk</h6>
+                                    <p>From classic chocolate to exciting new flavors, there's a taste for everyone. Explore our delicious range and find your new favorite!</p>
+                                    <a href="#" class="btn btn-read-more">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                            <div class="product-card cheese-butter">
+                                <img src="Images/cheese.png" alt="Cheese & Butter" class="product-image">
+                                <div class="product-content">
+                                    <h6>Cheese & Butter</h6>
+                                    <p>Explore our selection of handcrafted cheeses, from creamy bries to sharp cheddars, and discover the rich, flavorful difference of our farm-fresh butter.</p>
+                                    <a href="#" class="btn btn-read-more">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                            <div class="product-card yoghurt">
+                                <img src="Images/yoghurt.png" alt="Yoghurt" class="product-image">
+                                <div class="product-content">
+                                    <h6>Yoghurt</h6>
+                                    <p>Packed with probiotics and essential nutrients, our yogurt is the perfect way to support your gut health and fuel your day. Creamy, delicious, and good for you!</p>
+                                    <a href="#" class="btn btn-read-more">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                            <div class="product-card juices">
+                                <img src="Images/myjuicee.png" alt="Juices" class="product-image">
+                                <div class="product-content">
+                                    <h6>Juices</h6>
+                                    <p>Our juices are the perfect way to start your day or revitalize your afternoon. Taste the difference fresh makes.</p>
+                                    <a href="#" class="btn btn-read-more">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+        </div>
+    </section>
+    <section class="our-brands">
+        <div class="container">
+            <h2>OUR BRANDS</h2>
+            <p>Daily products have never been considered healthier than present.</p>
+            <div class="brand-logos">
+                <img src="Images/ambewela.png" alt="Ambewela">
+                <img src="Images/myjuiceelogo.png" alt="My Juicee">
+                <img src="Images/daily.png" alt="Daily">
+            </div>
+        </div>
+    </section>
+
+    <div class="container-fluid">
+        <div class="row" >
+            <div class="col-md-6 banner-section banner-left">
+                <div class="overlay">
+                    <h2>ISO 22000</h2>
+                    <p>Certified Company</p>
+                    <p>The goal of a sustainable future remains at the top of our KPIs.</p>
+                    <button class="btn btn-primary">Read More</button>
+                </div>
+            </div>
+            <div class="col-md-6 banner-section banner-right">
+                <div class="overlay">
+                    <h2><span class="fw-bold">STRIVE FOR</span><br> ZERO</h2>
+                    <p>Environmental impact in our operations</p>
+                    <button class="btn btn-success">Read More</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  <!-- Stats Section -->
+  <div class="stats-section">
+    <div class="container text-center">
+        <div class="row text-white">
+            <div class="col-md-3">
+                <img src="Images/01.png" alt="Award Icon" class="mb-2" style="width: 80px; height: 80px;">
+                <h6 class="text-warning">29 Years</h6>
+                <p>Serving Sri Lankan Consumers</p>
+            </div>
+            <div class="col-md-3">
+                <img src="Images/02.png" alt="Industry Icon" class="mb-2" style="width: 80px; height: 80px;">
+                <h6 class="text-warning">5.5 Billion</h6>
+                <p>Production Scale</p>
+            </div>
+            <div class="col-md-3">
+                <img src="Images/03.png" alt="Users Icon" class="mb-2" style="width: 80px; height: 80px;">
+                <h6 class="text-warning">175+</h6>
+                <p>Happy Employees</p>
+            </div>
+            <div class="col-md-3">
+                <img src="Images/04.png" alt="Cow Icon" class="mb-2" style="width: 80px; height: 80px;">
+                <h6 class="text-warning">20 Million Liters</h6>
+                <p>Annual Milk Production</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <!-- News and Events -->
+    <section class="news">
+        <div class="container news-section mt-5">
+            <h2 class="text-center mb-4">News and Events</h2>
+            <div class="row">
+                <!-- News Item 1 -->
+                <div class="col-md-12 d-flex mb-4">
+                    <!-- Thumbnail Image on the Left -->
+                    <div class="col-md-4">
+                        <img src="Images/dji.jpg" alt="Thumbnail Image" class="img-fluid rounded" onclick="openArticle(1)" style="cursor: pointer;">
+                    </div>
+                    <!-- News Content on the Right -->
+                    <div class="col-md-8">
+                        <div class="news-item">
+                            <h5 class="mt-6">December 24, 2024</h5>
+                            <p onclick="openArticle(1)" style="cursor: pointer; color: rgb(0, 0, 0); text-decoration: none;"><strong>Ambewela Farms Achieves Record-Breaking Daily Milk Production of 60,000 Litres</strong></p>
+                            <p onclick="openArticle(1)" style="cursor: pointer; color: rgb(0, 0, 0); text-decoration: none;">
+                                Ambewela Farms achieves record 62,000L daily milk production, showcasing modernization, innovation, and national dairy growth....
+                            </p>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- News Item 2 -->
+                <div class="col-md-12 d-flex mb-4">
+                    <!-- Thumbnail Image on the Left -->
+                    <div class="col-md-4">
+                        <img src="Images/cheesenews.jpg" alt="Thumbnail Image" class="img-fluid rounded"  onclick="openArticle(1)" style="cursor: pointer;">
+                    </div>
+                    <!-- News Content on the Right -->
+                    <div class="col-md-8">
+                        <div class="news-item">
+                            <h5 class="mt-6">February 09, 2025</h5>
+                            <p onclick="openArticle(1)" style="cursor: pointer; color: rgb(0, 0, 0); text-decoration: none;"><strong>Discover Ambewela’s Newly Relaunched Cheese Range</strong></p>
+                            <p onclick="openArticle(2)" style="cursor: pointer; color: rgb(0, 0, 0); text-decoration: none;">
+                                Ambewela relaunches cheese range with new packaging, diverse flavors, and world-class local dairy quality...
+                            </p>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- News Item 3 -->
+                <div class="col-md-12 d-flex mb-4">
+                    <!-- Thumbnail Image on the Left -->
+                    <div class="col-md-4">
+                        <img src="Images/president.jpg" alt="Thumbnail Image" class="img-fluid rounded"  onclick="openArticle(1)" style="cursor: pointer;">
+                    </div>
+                    <!-- News Content on the Right -->
+                    <div class="col-md-8">
+                        <div class="news-item">
+                            <h5 class="mt-6">June 28, 2024</h5>
+                            <p onclick="openArticle(1)" style="cursor: pointer; color: rgb(0, 0, 0); text-decoration: none;"><strong>President’s Visit Ignites Ambewela Dairy Farm’s Next Big Leap in Milk Production</strong></p>
+                            <p onclick="openArticle(3)" style="cursor: pointer; color: rgb(0, 0, 0); text-decoration: none;">
+                                President Wickremesinghe visits Ambewela Dairy Farm, highlighting its advancements and commitment to growth...
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    
+    
+    
+    <footer class="footer">
+        <div class="container">
+            <nav class="footer-nav">
+                <a href="index.html" class="active">Home</a>
+                <a href="#">About Us</a>
+                <a href="#">Products</a>
+                <a href="#">Innovation</a>
+                <a href="#">Careers</a>
+                <a href="#">Subsidiaries</a>
+                <a href="#">News Center</a>
+                <a href="#">Investor Relations</a>
+                <a href="#">Contact Us</a>
+            </nav>
+            <p class="copyright">© 2025 LANKA DAIRIES. ALL RIGHTS RESERVED</p>
+        </div>
+    </footer>
+    <script>
+        function openArticle(articleId) {
+            window.location.href = `news-details.html?article=${articleId}`;
+        }
+    </script>
+
+    <script>
+        console.log("Navbar loaded");
+      </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        let slides = document.querySelectorAll('.hero-slideshow img');
+        let currentSlide = 0;
+
+        function nextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+
+        setInterval(nextSlide, 3000);
+        $(document).ready(function () {
+            $(".footer-nav a").click(function () {
+                $(".footer-nav a").removeClass("active");
+                $(this).addClass("active");
+            });
+        });
+        document.querySelectorAll('.dropdown-toggle').forEach(item => {
+        item.addEventListener('click', event => {
+            let dropdownMenu = event.target.nextElementSibling;
+            if (dropdownMenu) {
+                dropdownMenu.classList.toggle('show');
+            }
+        });
+    });
+    </script>
+</body>
+</html>
